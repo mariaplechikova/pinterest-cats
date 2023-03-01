@@ -1,0 +1,162 @@
+@mixin flexable($justify-content: center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify-content;
+}
+$background-color: #E3E2DF;
+$nav-color: #5D001E;
+$link-color: #E3E2DF;
+$nav-active-color: #330010;
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+    background-color: $background-color;
+    @include flexable;
+    flex-direction: column;
+    position: relative;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color : $nav-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+nav {
+    @include flexable($justify-content: flex-start);
+    height: 100%;
+    background-color : $nav-color;
+}
+
+.nav-all, .nav-like {
+    background-color : $nav-color;
+    width: calc(100vw / 2);
+    height: 100%;
+    border: none;
+}
+
+a  { 
+    font-size: 20px;
+    color: $link-color;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.active {
+    background-color : $nav-active-color;
+}
+
+.container {
+    margin-top: 115px;
+    @include flexable;
+}
+
+.more {
+    height: 100px;
+    width: 350px;
+    margin: 25px auto;
+    border: none;
+    font-size: 20px;
+    background-color: $nav-color;
+    color: $link-color;
+    cursor: pointer;
+    border-radius: 10px
+}
+
+
+.cat-block {
+    @include flexable;
+    width: 273px;
+    height: 273px;
+}
+
+.cat-block-img {
+    width: 225px;
+    height: 225px;
+    @include flexable;
+    transition: 0.7s;
+}
+.cat-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.cat-block-img:hover {
+    width: 256px;
+    height: 256px;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+}
+
+.cat-block-img:hover .like-img {
+    display: block;
+}
+
+.like-img {
+    position: absolute;
+    width: 40px;
+    height: 36.7px;
+    margin-left: 76px;
+    margin-top: 76px;
+    transition: 0.7s;
+    display: none;
+    transition: 0.7s;
+}
+
+.like-img-red {
+    position: absolute;
+    width: 40px;
+    height: 36.7px;
+    margin-left: 76px;
+    margin-top: 76px;
+    transition: 0.7s;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .nav-all, .nav-like {
+        width: 200px;
+    }
+}
+
+@media (min-width: 850px) {
+    .block {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+  
+}
+
+@media (min-width: 1300px) {
+    .block {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  
+}
+
+
+
+
+
